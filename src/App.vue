@@ -1,5 +1,6 @@
 <template>
    <div>
+      <Toast />
       <Navbar />
       <OperadoraList />
    </div>

@@ -1,16 +1,21 @@
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
-, "src/components/ui/navbar.cue"  ]
+    "src/**/*.vue",
+    "src/components/ui/navbar.vue",
+    "src/components/ui/loaders/loading.vue"
+  ]
 }
