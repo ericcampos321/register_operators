@@ -3,10 +3,10 @@
       <Toast />
       <Navbar />
       <OperadoraList />
+      <router-view />
    </div>
 </template>
 
 <script setup lang="ts">
-import OperadoraList from './components/OperatorsList.vue';
 import Navbar from './components/ui/navbar.vue';
 </script>

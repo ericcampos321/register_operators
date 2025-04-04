@@ -4,6 +4,7 @@ import PrimeVue from 'primevue/config';
 import ToastService from 'primevue/toastservice';
 import Toast from 'primevue/toast';
 import Aura from '@primeuix/themes/aura';
+import router from './routes/index';
 
 import 'primeicons/primeicons.css';
 import './assets/app.css';
@@ -17,5 +18,6 @@ app.use(PrimeVue, {
 });
 
 app.use(ToastService);
+app.use(router)
 app.component('Toast', Toast);
 app.mount('#app');

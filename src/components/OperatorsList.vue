@@ -7,16 +7,26 @@ import Loading from './ui/loaders/loading.vue';
 import Button from 'primevue/button';
 import 'primeicons/primeicons.css';
 
-const busca = ref('');
-const operadoras = ref([]);
-const isLoading = ref(false);
-const isFirstLoad = ref(true);
-const toast = useToast();
+interface Operadora {
+   Registro_ANS: string
+   CNPJ: string
+   Razao_Social: string
+   Nome_Fantasia: string
+   Endereco_eletronico: string
+   Representante: string
+   Cargo_Representante: string
+   Data_Registro_ANS: string
+}
 
+const busca = ref('');
+const operadoras = ref<Operadora[]>([]);
+const isLoading = ref<boolean>(false);
+const isFirstLoad = ref<boolean>(true);
+const toast = useToast();
 
 const { showMessage } = useToastMessage();
 
-const buscar = async () => {
+const buscar = async (): Promise<void> => {
    try {
       if (!busca.value) {
          if (!isFirstLoad.value) {
@@ -25,14 +35,14 @@ const buscar = async () => {
          return;
       }
       isLoading.value = true;
-      const { data } = await api.get('/operators/search', {
+      const { data }: { data: { data: Operadora[] } } = await api.get('/operators/search', {
          params: { search: busca.value }
       });
       operadoras.value = data.data;
       if (!isFirstLoad.value) {
          toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Busca realizada com sucesso!', life: 3000 });
       }
-   } catch (error) {
+   } catch (error: any) {
       if (!isFirstLoad.value) {
          toast.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao buscar operadoras', life: 3000 });
       }
@@ -42,7 +52,7 @@ const buscar = async () => {
    }
 };
 
-const clear = () => {
+const clear = (): void => {
    isLoading.value = true;
    busca.value = '';
    operadoras.value = [];
@@ -50,7 +60,7 @@ const clear = () => {
    showMessage('info', 'Limpar', 'Busca limpa com sucesso!', !isFirstLoad.value);
 };
 
-const timer = () => {
+const timer = (): void => {
    setTimeout(() => {
       isLoading.value = false;
    }, 2000);
