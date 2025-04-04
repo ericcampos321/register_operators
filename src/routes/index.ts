@@ -1,14 +1,15 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import OperatorsList from '../pages/OperatorsList.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Operadoras from '../components/OperatorsList.vue';
+import Home from '../components/Home.vue';
 
 const routes = [
-{ path: '/', name: 'Home', component: Home },
-{ path: '/operadoras', name: 'Operadoras', component: OperatorsList }
-]
+  { path: '/', name: 'Home', component: Home },
+  { path: '/operators', name: 'Operadoras', component: Operadoras }
+];
 
 const router = createRouter({
-history: createWebHistory(),
-routes
-})
+  history: createWebHistory(),
+  routes
+});
 
-export default router
+export default router;
