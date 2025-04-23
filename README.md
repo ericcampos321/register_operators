@@ -1,6 +1,6 @@
 # Teste Técnico - API de Busca de Operadoras (FastAPI + Vue.js)
 
-<img align="center" alt="" src="case.png">
+<img align="center" alt="" src="case.jpg">
 
 Este projeto consiste em uma aplicação Full Stack composta por:
 
