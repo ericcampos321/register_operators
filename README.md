@@ -1,5 +1,7 @@
 # Teste Técnico - API de Busca de Operadoras (FastAPI + Vue.js)
 
+<img align="center" alt="" src="case.png">
+
 Este projeto consiste em uma aplicação Full Stack composta por:
 
 - Backend: API em Python com FastAPI para leitura de operadoras a partir de um arquivo CSV.
